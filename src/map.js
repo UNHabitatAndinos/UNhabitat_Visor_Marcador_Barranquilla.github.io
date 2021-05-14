@@ -1,6 +1,5 @@
-// Create variable to hold map element, give initial settings to map
 var map = L.map('map', {
-    center: [10.98, -74.8],
+    center: [10.98, -74.83],
     zoom: 12,
     minZoom: 12,
     scrollWheelZoom: false,
@@ -9,7 +8,7 @@ var map = L.map('map', {
 map.once('focus', function() { map.scrollWheelZoom.enable(); });
 
 L.easyButton('<img src="images/fullscreen.png">', function (btn, map) {
-    var cucu = [10.98, -74.8];
+    var cucu = [10.98, -74.83];
     map.setView(cucu, 12);
 }).addTo(map);
 
