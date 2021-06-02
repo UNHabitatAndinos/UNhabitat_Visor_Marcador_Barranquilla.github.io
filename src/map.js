@@ -43,7 +43,7 @@ info.update = function (props) {
         'Personas ' + props.HA_TOT_PER + '<br />' +  
         'Población de origen Venezuela ' + props.VEN + '<br />' +  '<br />' + 
 
-        '<b>Marcador Inclusión Urbana '  + props.INDICE_MAR.toFixed(0)  + ' %' + '</b>'+ '<br />' + '<br />' + 
+        '<b>Marcador de Inclusión Urbana '  + props.INDICE_MAR.toFixed(0)  + ' %' + '</b>'+ '<br />' + '<br />' + 
 
         '<b>Vivienda asequible, de calidad y con servicios '  + props.VIV.toFixed(0)  + ' %' + '</b>'+ '<br />' +
         'Calidad estructural y cualitativa de la vivienda: ' + props.V_CAL.toFixed(0) + ' %' + '<br />' +
@@ -155,7 +155,7 @@ function changeLegend(props) {
 
 var legends = {
     INDICE_MAR: {
-        title: "Marcador potencial integración urbana",
+        title: "Marcador de Inclusión Urbana",
         subtitle: "%", 
         elem1: '<div><span  style= "color:#FCF9BB">▉</span>75 - 81</div>',
         elem2: '<div><span  style= "color:#FE9D6C">▉</span>71 - 74</div>', 
