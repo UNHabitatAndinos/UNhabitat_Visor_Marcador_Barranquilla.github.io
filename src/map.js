@@ -40,7 +40,7 @@ info.update = function (props) {
         'Localidad ' + props.NMB_LC_CM + '<br />' +
         'Viviendas ' + props.V_CON_OCUP + '<br />' +
         'Hogares ' + props.HOG + '<br />' +
-        'Personas ' + props.HA_TOT_PER + '<br />' +  
+        'Personas ' + props.PER + '<br />' +  
         'Población de origen Venezuela ' + props.VEN + '<br />' +  '<br />' + 
 
         '<b>Marcador de Inclusión Urbana '  + props.INDICE_MAR.toFixed(0)  + ' %' + '</b>'+ '<br />' + '<br />' + 
@@ -157,11 +157,11 @@ var legends = {
     INDICE_MAR: {
         title: "Marcador de Inclusión Urbana",
         subtitle: "%", 
-        elem1: '<div><span  style= "color:#FCF9BB">▉</span>75 - 81</div>',
-        elem2: '<div><span  style= "color:#FE9D6C">▉</span>71 - 74</div>', 
-        elem3: '<div><span  style= "color:#CA3E72">▉</span>67 - 70</div>',
-        elem4: '<div><span  style= "color:#862781">▉</span>60 - 66</div>',
-        elem5: '<div><span  style= "color:#2A115C">▉</span>40 - 59</div>',
+        elem1: '<div><span  style= "color:#FCF9BB">▉</span>74 - 81</div>',
+        elem2: '<div><span  style= "color:#FE9D6C">▉</span>70 - 73</div>', 
+        elem3: '<div><span  style= "color:#CA3E72">▉</span>66 - 69</div>',
+        elem4: '<div><span  style= "color:#862781">▉</span>58 - 65</div>',
+        elem5: '<div><span  style= "color:#2A115C">▉</span>39 - 57</div>',
         elem6: '',
         elem7: '',
         elem8: "ONU Hábitat 2020 - Elaboración propia",
@@ -189,10 +189,10 @@ function setProColor(d) {
                         '#d7191c';
     }
     else if (currentStyle === 'INDICE_MAR') {
-        return d > 74 ? '#FCF9BB' :
-            d > 70 ? '#FE9D6C' :
-                d > 66 ? '#CA3E72' :
-                    d > 59 ? '#862781' :
+        return d > 73 ? '#FCF9BB' :
+            d > 69 ? '#FE9D6C' :
+                d > 65 ? '#CA3E72' :
+                    d > 57 ? '#862781' :
                     '#2A115C';
     }
     else {
