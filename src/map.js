@@ -91,46 +91,17 @@ function highlightFeature(e) {
 
     layer.setStyle({
         weight: 5,
-        color: 'black',
+        color: '#494949',
         dashArray: '',
-        fillColor: false
+        fillOpacity: 0.7,
+        opacity: 0.8
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
-
     info.update(layer.feature.properties);
 }
-
-var manzanas;
-
-function resetHighlight(e) {
-    manzanas.resetStyle(e.target);
-    info.update();
-}
-
-function zoomToFeature(e) {
-    map.fitBounds(e.target.getBounds());
-}
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-    });
-}
-
-function style(feature) {
-    return {
-        weight: 0.6,
-        opacity: 0.5,
-        color: '#ffffff00',
-        fillOpacity: 0,
-    };
-}
-
 
 function changeLegend(props) {
     var _legend = document.getElementById('legend'); // create a div with a class "info"
@@ -168,27 +139,35 @@ var legends = {
     },
 }
 
-var indi = L.geoJson(Manzana, {
+var indi;
+
+function resetHighlight(e) {
+    indi.setStyle(fillColor);
+    info.update();
+}
+
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+}
+
+indi = L.geoJson(Manzana, {
     style: legends.INDICE_MAR,
+    onEachFeature: onEachFeature
 }).addTo(map);
 
 var currentStyle = 'INDICE_MAR';
 
-manzanas = L.geoJson(Manzana, {
-    style: style,
-    onEachFeature: onEachFeature
-}).addTo(map);
-
 
 function setProColor(d) {
-    if (currentStyle === 'P_MAT_ADE') {
-        return d > 85 ? '#1a9641' :
-            d > 65 ? '#a6d96a' :
-                d > 35 ? '#f4f466' :
-                    d > 15 ? '#fdae61' :
-                        '#d7191c';
-    }
-    else if (currentStyle === 'INDICE_MAR') {
+    if (currentStyle === 'INDICE_MAR') {
         return d > 73 ? '#FCF9BB' :
             d > 69 ? '#FE9D6C' :
                 d > 65 ? '#CA3E72' :
@@ -204,6 +183,7 @@ function setProColor(d) {
     }
 
 }
+
 
 function fillColor(feature) {
     return {
